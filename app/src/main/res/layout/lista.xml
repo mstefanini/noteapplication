@@ -54,8 +54,7 @@ android:layout_height="140dp"
             android:id="@+id/tv_MainText"
             android:layout_weight="1"
             android:textSize="30dp"
-            android:paddingLeft="2dp"
-            android:paddingTop="10dp" />
+            android:paddingLeft="2dp" />
 
         <TextView
             tools:text="This saturday"
