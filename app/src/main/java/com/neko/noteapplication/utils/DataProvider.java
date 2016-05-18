@@ -14,6 +14,7 @@ import com.couchbase.lite.android.AndroidContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -66,6 +67,21 @@ public class DataProvider {
             Log.e(TAG, "An error happened", e);
         }
         return noteArrayList;
+    }
+
+    public List<Note> getListArray(){
+        List<Note> noteList = new ArrayList<>();
+        try {
+            Query allDocumentsQuery = database.createAllDocumentsQuery();
+            QueryEnumerator queryResult = allDocumentsQuery.run();
+            for (Iterator<QueryRow> it = queryResult; it.hasNext(); ) {
+                QueryRow row = it.next();
+                noteList.add(Note.createFromDocument(row.getDocument()));
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "An error happened", e);
+        }
+        return noteList;
     }
 
     public Note getNoteById(String i){

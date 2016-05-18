@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     TapBarMenu tapBarMenu;
     private SimpleAdapter adapter;
     private DataProvider dataProvider = DataProvider.getInstance();
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
 
         ListView listView = (ListView)findViewById(R.id.listView);
-        List list = new LinkedList();
+        List list = dataProvider.getListArray();
 
         list.add(new Note("title","description","22"));
         list.add(new Note("title 2","description 2",":)"));
