@@ -88,20 +88,23 @@ public class DataProvider {
         return Note.createFromDocument(database.getDocument(i));
     }
 
-    public Note searchByyTitle(String aTitle){
+    public List<Note> searchByyTitle(String aTitle){
+        List<Note> note = new ArrayList<>();
         try{
             Query allDocumentsQuery = database.createAllDocumentsQuery();
             QueryEnumerator queryResults = allDocumentsQuery.run();
             for(Iterator<QueryRow> it = queryResults; it.hasNext(); ){
                 QueryRow row = it.next();
                 if(aTitle.equals(row.getDocument().getProperty(Note.TITLE))){
-                    return Note.createFromDocument(row.getDocument());
+                   note.add(Note.createFromDocument(row.getDocument()));
                 }
             }
         } catch (CouchbaseLiteException e){
             Log.e(COUCH, "Problem in find element");
         }
-        return null;
+
+        Log.d("TEST", note.toString());
+        return note;
     }
 
     private void initCB(){

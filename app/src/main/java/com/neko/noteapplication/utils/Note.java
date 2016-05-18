@@ -62,7 +62,7 @@ public class Note {
     }
 
 
-    public static final String TITLE = "title";
+    public static final String TITLE = "Title";
     public static final String NOTE = "note";
     public static final String DATE = "date";
     public static final String TIME = "time";
