@@ -2,123 +2,123 @@
 <items version="2" >
 
     <item
-        jar="/home/matteo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.5.0/489b7552dd3322b63f694122d16ce62c21c303b5/jackson-databind-2.5.0.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="489b7552dd3322b63f694122d16ce62c21c303b5">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.5.0_8fd8c25bb0f5e4b91ee48d5e4810dcede3460bbb/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
+        jar="/home/robert/noteapplication/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
         jumboMode="true"
         revision="23.0.3"
         sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.3.0_9d295eec22e972c69a342f063f75e1617243e6c7/classes.dex" />
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.3.0_6a24581cde762e70c3543b08eb14d0e0b397068f/classes.dex" />
     </item>
     <item
-        jar="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
+        jar="/home/robert/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.5.0/489b7552dd3322b63f694122d16ce62c21c303b5/jackson-databind-2.5.0.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.3.0_913c94c79e5eaf37864c5471bd718fbe060b82bd/classes.dex" />
+        sha1="489b7552dd3322b63f694122d16ce62c21c303b5">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.5.0_b20dc3c70abe8cb6914bef44678dc79ffdc808b8/classes.dex" />
     </item>
     <item
-        jar="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.3.0_5d02dc9aaafc06de2931ee33bc18510ccc429edd/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.5.0/b2ece1bd57ac7b4c315b7505b65ac79cb1da4270/jackson-core-2.5.0.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="b2ece1bd57ac7b4c315b7505b65ac79cb1da4270">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.5.0_1665c3cf3bd22386a7a0e559e6441d7d848d4d66/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.3.0_14b8d5a6325b37c0e63fef228f05b9a9f1460ee7/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.5.0/a2a55a3375bc1cef830ca426d68d2ea22961190e/jackson-annotations-2.5.0.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="a2a55a3375bc1cef830ca426d68d2ea22961190e">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.5.0_9ee15f15005d04810a41ef640d014a366ec47add/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/.gradle/caches/modules-2/files-2.1/com.github.oxo42/stateless4j/2.4.0/128aca4ace585f0b42faa739d0b968a154debb7a/stateless4j-2.4.0.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="128aca4ace585f0b42faa739d0b968a154debb7a">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/stateless4j-2.4.0_16d7e784ec47da8249f6719c0a83b524d044088c/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/exploded-aar/com.wnafee/vector-compat/1.0.5/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="efb6c83d14996769c65f060f81cbb5ab1f64ca75">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.wnafee-vector-compat-1.0.5_f5fd3719188e6ce9cc3187abbb54f664477a9902/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.3.0_22a6087f191f499625aa6a1ec6f8448558f6189a/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="0a4c97fcb4e38e15d22ff4323c491bccdad494fb">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_f4b7e4d468135e98e82e386574b9bd1969958236/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/exploded-aar/com.couchbase.lite/couchbase-lite-android-sqlite-default/1.2.1/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="df78eba53e01ecb50e09156b7aab0479a2d32bf7">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.couchbase.lite-couchbase-lite-android-sqlite-default-1.2.1_8f79e04c754f6a47180acfd5089abdc9ca75719f/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/exploded-aar/com.github.michaldrabik/tapbarmenu/1.0.5/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="ffb5ca9d86d47e5d88122249ece623c6d6c4d3a5">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.michaldrabik-tapbarmenu-1.0.5_5fcc011b27756e9d5e7766a1ecce26e5c1b17204/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/exploded-aar/com.couchbase.lite/couchbase-lite-android/1.2.1/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="3ff8f27d4f03623592b40f37465d57981f8f37f4">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.couchbase.lite-couchbase-lite-android-1.2.1_9c1e4dde78787c1938cedbb6d47575d9f21ae1e0/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="27cc273518d42fd26117225d37f7c5d44ddc6386">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_40fa2247d51dbe6ad333697c6bffda943175d272/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/.gradle/caches/modules-2/files-2.1/com.couchbase.lite/couchbase-lite-java-core/1.2.1/ffd63d435d8c2ba13575cead721b5a64b021335f/couchbase-lite-java-core-1.2.1.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="ffd63d435d8c2ba13575cead721b5a64b021335f">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/couchbase-lite-java-core-1.2.1_b5cb7368b65da0f066ce7e83344035cc0e02e391/classes.dex" />
-    </item>
-    <item
-        jar="/home/matteo/.android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
+        jar="/home/robert/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
         jumboMode="true"
         revision="23.0.3"
         sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
-        <dex dex="/home/matteo/Documents/PW/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.3.0_3191eb3821bf52e1595dfe08caf988de50f33dbb/classes.dex" />
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.3.0_bb036e9661cf909cbb5b5dba7f027ba27660bc12/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/.gradle/caches/modules-2/files-2.1/com.couchbase.lite/couchbase-lite-java-core/1.2.1/ffd63d435d8c2ba13575cead721b5a64b021335f/couchbase-lite-java-core-1.2.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ffd63d435d8c2ba13575cead721b5a64b021335f">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/couchbase-lite-java-core-1.2.1_2d13a2611b73b8646731a3ad5ddafd8041d20c36/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/noteapplication/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.3.0_0dc229d3aa0e40b81ba35781b14fc37e9f2a119f/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/noteapplication/app/build/intermediates/exploded-aar/com.couchbase.lite/couchbase-lite-android-sqlite-default/1.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="df78eba53e01ecb50e09156b7aab0479a2d32bf7">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.couchbase.lite-couchbase-lite-android-sqlite-default-1.2.1_303c669a3b794abf8759c321a0bb2999f9708ea3/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/noteapplication/app/build/intermediates/exploded-aar/com.github.michaldrabik/tapbarmenu/1.0.5/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ffb5ca9d86d47e5d88122249ece623c6d6c4d3a5">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.michaldrabik-tapbarmenu-1.0.5_3d23e3abd12f7ac2f3ea8d23881af948fccb782c/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.5.0/a2a55a3375bc1cef830ca426d68d2ea22961190e/jackson-annotations-2.5.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a2a55a3375bc1cef830ca426d68d2ea22961190e">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.5.0_561e86667fdd6725a4772fb064f426a226967c81/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/noteapplication/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.3.0_2f7b0f8464bc8506d933109a7a22495ec1d8482f/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.5.0/b2ece1bd57ac7b4c315b7505b65ac79cb1da4270/jackson-core-2.5.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="b2ece1bd57ac7b4c315b7505b65ac79cb1da4270">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.5.0_c7b366a2a0c2066e1944847d33460e40e4eefab0/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/noteapplication/app/build/intermediates/exploded-aar/com.wnafee/vector-compat/1.0.5/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="efb6c83d14996769c65f060f81cbb5ab1f64ca75">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.wnafee-vector-compat-1.0.5_bc686200119c27fcc7e4cd31ccae8421d13dffb9/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/.gradle/caches/modules-2/files-2.1/com.github.oxo42/stateless4j/2.4.0/128aca4ace585f0b42faa739d0b968a154debb7a/stateless4j-2.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="128aca4ace585f0b42faa739d0b968a154debb7a">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/stateless4j-2.4.0_585359c598420dc78af94a8f17e7219423ef3838/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/noteapplication/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="89291c71744ae58448cf02fbae1c9c0f319a0ccc">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_00a8e5bb89b6d51876a4f67397a64aa24d2f483c/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/noteapplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.3.0_31bc8eb59587ef5767409697017137609744b233/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/noteapplication/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.3.0_e78132264e9e54a8ddedeaf76926bf012e7ea92c/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/noteapplication/app/build/intermediates/exploded-aar/com.couchbase.lite/couchbase-lite-android/1.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="3ff8f27d4f03623592b40f37465d57981f8f37f4">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.couchbase.lite-couchbase-lite-android-1.2.1_f45ee97beedff241e340e7ea6a0503c32458b259/classes.dex" />
+    </item>
+    <item
+        jar="/home/robert/noteapplication/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="967f0a8a84cef289fa75b68d45755d6d4304fd08">
+        <dex dex="/home/robert/noteapplication/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_8bda6635e5dd0519b1f2dddf10a03f24fbe55fdb/classes.dex" />
     </item>
 
 </items>

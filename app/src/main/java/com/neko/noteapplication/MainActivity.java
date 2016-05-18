@@ -1,6 +1,7 @@
 package com.neko.noteapplication;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
@@ -8,15 +9,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.SearchView;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
@@ -26,6 +31,8 @@ import com.neko.noteapplication.utils.Note;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
@@ -52,31 +59,22 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             RelativeLayout rl = (  RelativeLayout )findViewById(R.id.schermo);
             rl.setBackgroundColor(Color.parseColor("#232323"));}
 
-        final MainActivity m_this = this;
 
 
-        ArrayList<Note> m_data = dataProvider.getDataArray();
+        ListView listView = (ListView)findViewById(R.id.listView);
+        List list = new LinkedList();
+
+        list.add(new Note("title","description","22"));
+        list.add(new Note("title 2","description 2",":)"));
+
+        CustomAdapter adapter = new CustomAdapter(this, R.layout.lista, list);
+        listView.setAdapter(adapter);
+
+
+        //ArrayList<Note> m_data = dataProvider.getDataArray();
 
        /* //begin init test data
         final ArrayList<HashMap<Str1ing, Object>> m_data = new ArrayList<HashMap<String, Object>>();
-
-        HashMap<String, Object> map1 = new HashMap<String, Object>();
-        map1.put("maintext", "sQuola");
-        map1.put("subtext", "leggere libro merlino");
-        map1.put("day", "12");
-        m_data.add(map1);
-
-        HashMap<String, Object> map2 = new HashMap<String, Object>();
-        map2.put("maintext", "Stipendio");// no small text of this item!
-        map2.put("subtext", "chiamare il PIVA");
-        map2.put("day", "02");
-        m_data.add(map2);
-
-        HashMap<String, Object> map3 = new HashMap<String, Object>();
-        map3.put("maintext", "Cucina");
-        map3.put("subtext", "comprare pomodori");
-        map3.put("day", "26");
-        m_data.add(map3);
 
         for(int i=0;i<100;i++){
             HashMap<String, Object> map4 = new HashMap<String, Object>();
@@ -84,9 +82,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             map3.put("subtext", "comprare pomodori");
             map3.put("day", "26");
             m_data.add(map3);
-        }*/
-
-        //end init data
+        }
 
         final ListView lv = (ListView) m_this.findViewById(R.id.listView);
         lv.setDivider(null);
@@ -118,12 +114,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             @Override
             public void onItemClick(AdapterView<?> arg0, View v, int arg2, long arg3) {
 
-
+    \
                 Toast.makeText(getApplicationContext(), "You have chosen : "+arg2,Toast.LENGTH_LONG).show();
                //click listener
             }
         });
-        //show result
+        //show result*/
     }
 
     @Override
@@ -149,5 +145,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // User changed the text
         return false;
     }
+
+
+
+
 
 }

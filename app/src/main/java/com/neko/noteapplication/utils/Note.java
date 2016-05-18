@@ -14,6 +14,54 @@ public class Note {
     public String time;
     public String title;
 
+    public String getId() {
+        return id;}
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Note(String titolo, String testo, String data) {
+
+        setTitle(titolo);
+        setTime(data);
+        setNote(testo);
+
+    }
+
+
     public static final String TITLE = "title";
     public static final String NOTE = "note";
     public static final String DATE = "date";
