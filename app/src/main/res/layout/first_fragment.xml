@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#b1b1b5">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="342dp"
+            android:layout_weight="0.40">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/editText"
+                        android:backgroundTint="#ffffff"
+                        android:autoText="true"
+                        android:textColorLink="#ffffff"
+                        android:textColor="#ffffff"
+                        android:drawableTint="#ffffff"
+                        android:textSize="25dp"
+                        android:layout_gravity="left"
+                        android:hint="inserisci il titolo..."
+                        android:textCursorDrawable="@null"
+                        android:textStyle="italic"
+                        android:singleLine="true"
+                        android:layout_weight="0.89" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="26dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Small Text"
+                        android:id="@+id/textViewDate" />
+                </LinearLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textCursorDrawable="@null"
+                    android:id="@+id/editText2"
+                    android:backgroundTint="#b1b1b5"
+                    android:autoText="true"
+                    android:textColorLink="#ffffff"
+                    android:textColor="#ffffff"
+                    android:drawableTint="#ffffff"
+                    android:textSize="25dp"
+                    android:hint="ciao" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:background="@drawable/red_button"
+                android:id="@+id/buttonSave"
+                android:layout_width="256dp"
+                android:layout_height="wrap_content"
+                android:text="SALVA"
+                style="@style/button_text"
+                android:textSize="20dp"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

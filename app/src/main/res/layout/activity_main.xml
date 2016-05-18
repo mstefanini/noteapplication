@@ -50,5 +50,10 @@
             android:src="@drawable/ic_arrow_vector" />
     </com.michaldrabik.tapbarmenulib.TapBarMenu>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container"></FrameLayout>
+
 
 </RelativeLayout>

@@ -1,45 +1,37 @@
 package com.neko.noteapplication;
 
 
-import android.content.Context;
 import android.graphics.Color;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import com.neko.noteapplication.utils.DataProvider;
 import com.neko.noteapplication.utils.Note;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, FirstFragment.interfacciaSenzaNomeDiFantasia {
 
     TapBarMenu tapBarMenu;
     private SimpleAdapter adapter;
     private DataProvider dataProvider = DataProvider.getInstance();
-
+    private FragmentManager fragmentManager = getSupportFragmentManager();
+    private FirstFragment fragment;
+    List list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 tapBarMenu.toggle();
             }
         });
+        final String FRAGMENT = "my_fragment";
 
         Calendar c = Calendar.getInstance();
         int ora= c.get(Calendar.HOUR_OF_DAY);
@@ -61,13 +54,36 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             rl.setBackgroundColor(Color.parseColor("#232323"));}
 
 
+        if((fragment = (FirstFragment) fragmentManager.findFragmentByTag(FRAGMENT)) == null){
+            fragment = FirstFragment.newInstance();
+        }
+
 
         ListView listView = (ListView)findViewById(R.id.listView);
-        List list = dataProvider.getListArray();
+         list = dataProvider.getListArray();
         listView.setDivider(null);
-        list.add(new Note("title","description","22"));
-        list.add(new Note("title 2","description 2",":)"));
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+                Toast.makeText(getApplicationContext(),"posizione:\t"+ position,Toast.LENGTH_LONG).show();
+
+               FragmentTransaction vTrans= fragmentManager.beginTransaction();
+                        vTrans.add(R.id.container, fragment, FRAGMENT);
+                Note note= (Note) list.get(position);
+                Bundle bundle=new Bundle();
+                bundle.putString("titolo",note.getTitle());
+                bundle.putString("testo",note.getNote());
+                fragment.setArguments(bundle);
+                vTrans.commit();
+
+                /*Intent intent = new Intent(CurrentActivity.this, TargetActivity.class);
+                startActivity(intent);*/
+            }
+        });
+
+        //list.add(new Note("title","description","22"));
+        //list.add(new Note("title 2","description 2",":)"));
         CustomAdapter adapter = new CustomAdapter(this, R.layout.lista, list);
         listView.setAdapter(adapter);
 
@@ -98,7 +114,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
 
+    @Override
+    public void VOID() {
 
-
-
+    }
 }
