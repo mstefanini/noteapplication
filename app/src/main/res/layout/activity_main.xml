@@ -3,7 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.neko.noteapplication.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.neko.noteapplication.MainActivity"
+    android:id="@+id/schermo">
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <com.michaldrabik.tapbarmenulib.TapBarMenu
         android:id="@+id/tapBarMenu"
@@ -12,6 +21,8 @@
         android:layout_marginBottom="2dp"
         android:layout_gravity="left"
         android:layout_alignParentBottom="true"
+        app:tbm_backgroundColor="#0d65ff"
+        app:tbm_showItems="false"
         android:layout_alignParentStart="true">
 
         <ImageView
@@ -36,8 +47,8 @@
             android:layout_weight="1"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:src="@drawable/ic_arrow_vector"
-            />
-
+            android:src="@drawable/ic_arrow_vector" />
     </com.michaldrabik.tapbarmenulib.TapBarMenu>
+
+
 </RelativeLayout>
