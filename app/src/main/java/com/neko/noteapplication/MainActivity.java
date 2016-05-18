@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private SimpleAdapter adapter;
     private DataProvider dataProvider = DataProvider.getInstance();
 
+    //COMMENTO A CAZZO DI CANE
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
