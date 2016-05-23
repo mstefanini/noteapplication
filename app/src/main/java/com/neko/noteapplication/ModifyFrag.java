@@ -3,6 +3,7 @@ package com.neko.noteapplication;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,13 +19,23 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class ModifyFrag extends Fragment {
-    public interface IOnDetail {
-         void onMyClose();
-    }
 
+    public interface IOnDetail {void onMyClose();}
+    IOnDetail mListener = new IOnDetail() {
+        @Override
+        public void onMyClose() {
+
+        }
+    };
+    private static final String TITOLO="titolo";
+    private static final String TESTO="testo";
     Button save;
     TextView ora;
     TapBarMenu aMenu;
+    Button bclose;
+    EditText miotitolo=null;
+    EditText miadescr=null;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -32,23 +43,16 @@ public class ModifyFrag extends Fragment {
             mListener = (IOnDetail)getActivity();
         }
     }
-    IOnDetail mListener = new IOnDetail() {
-        @Override
-        public void onMyClose() {
 
-        }
-    };
     public static ModifyFrag newInstance(){
         return new ModifyFrag();
     }
-    String title;
-    String testo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        final View vView = inflater.inflate(R.layout.first_fragment, container, false);
-        final ModifyFrag myfragment=this;
+
+         View vView = inflater.inflate(R.layout.first_fragment, container, false);
 
         aMenu= (TapBarMenu)vView.findViewById(R.id.tapBarMenu2);
         aMenu.setOnClickListener(new View.OnClickListener() {
@@ -57,20 +61,39 @@ public class ModifyFrag extends Fragment {
             }
         });
 
-        Bundle bundle=this.getArguments();
-        if(getArguments() != null){
-            if(bundle.getString("titolo")!=null) {
-                title=bundle.getString("titolo");
-                EditText miotitolo= (EditText )vView.findViewById(R.id.editText);
-                miotitolo.setText(title);
+        bclose= (Button)vView.findViewById(R.id.bClose);
+        bclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onMyClose();
             }
-            if(bundle.getString("testo")!=null) {
-                testo=bundle.getString("testo");
-                EditText miadescr= (EditText )vView.findViewById(R.id.editText2);
-                miadescr.setText(testo);
+        });
+
+        miotitolo= (EditText )vView.findViewById(R.id.editText);
+        miotitolo.setText("");
+
+        miadescr= (EditText )vView.findViewById(R.id.editText2);
+        miadescr.setText("");
+
+        Bundle bundle;
+        if((bundle = getArguments()) != null){
+            //Log.d ("LOG DI TAZZINA",bundle.getString(TITOLO));
+            String titolodimerda=bundle.getString(TITOLO);
+            String descrizionedimerda=bundle.getString(TESTO);
+            miotitolo.setText(titolodimerda);
+            miadescr.setText(bundle.getString(descrizionedimerda));
             }
+
+
+
+
+/*
+        for (String key: bundle.keySet())
+        {
+            Log.d ("LOG DI TAZZINA", bundle.getString(key));
         }
 
+*/
 
 
         save = (Button)vView.findViewById(R.id.buttonSave);
@@ -90,8 +113,7 @@ public class ModifyFrag extends Fragment {
 
 
 
-
-                Note nota=new Note("titolo","descriptio",""+giorno +" " + cal.getHours() + ":" + cal.getMinutes());
+                Note nota=new Note(miotitolo.getText().toString(),miadescr.getText().toString(),""+giorno +" " + cal.getHours() + ":" + cal.getMinutes());
                 DataProvider.getInstance().addNote(nota);
                 mListener.onMyClose();
                 //getActivity().getFragmentManager().beginTransaction().remove().commit();
@@ -110,6 +132,12 @@ public class ModifyFrag extends Fragment {
 
     }
 
-
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
+
+
+}
 

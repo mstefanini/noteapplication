@@ -33,12 +33,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private ModifyFrag fragment;
     private List<Note> list;
     ImageView btnAggiungi;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         tapBarMenu = (TapBarMenu)findViewById(R.id.tapBarMenu);
         tapBarMenu.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
@@ -46,18 +46,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
 
-
-        Calendar c = Calendar.getInstance();
-        int ora= c.get(Calendar.HOUR_OF_DAY);
-
-        if(ora>=20 || ora<5){
-            RelativeLayout rl = (RelativeLayout)findViewById(R.id.schermo);
-            rl.setBackgroundColor(Color.parseColor("#232323"));}
+        Calendar c = Calendar.getInstance();int ora= c.get(Calendar.HOUR_OF_DAY);
+        if(ora>=20 || ora<5){RelativeLayout rl = (RelativeLayout)findViewById(R.id.schermo);rl.setBackgroundColor(Color.parseColor("#232323"));}
 
 
-        if((fragment = (ModifyFrag) fragmentManager.findFragmentByTag(FRAGMENT)) == null){
-            fragment = ModifyFrag.newInstance();
-        }
+        if((fragment = (ModifyFrag) fragmentManager.findFragmentByTag(FRAGMENT)) == null) fragment = ModifyFrag.newInstance();
+
 
         btnAggiungi = (ImageView)findViewById(R.id.btnAggiungi);
         btnAggiungi.setOnClickListener(new View.OnClickListener() {
@@ -79,12 +73,22 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
                FragmentTransaction vTrans= fragmentManager.beginTransaction();
                         vTrans.add(R.id.container, fragment, FRAGMENT);
-                Note note= (Note) list.get(position);
-                Bundle bundle=new Bundle();
-                bundle.putString("titolo",note.getTitle());
-                bundle.putString("testo",note.getNote());
-                fragment.setArguments(bundle);
-                vTrans.commit();
+                Note note;
+                note=list.get(position);
+                //Toast.makeText(getApplicationContext(),note.getTitle(),Toast.LENGTH_LONG).show();
+                if(fragment != null) {
+
+                    bundle = new Bundle();
+                    bundle.putString("titolo", note.getTitle());
+                    bundle.putString("testo", note.getNote());
+                    //Toast.makeText(getApplicationContext(),bundle.getString("titolo"),Toast.LENGTH_LONG).show();
+                    fragment.setArguments(bundle);
+                    vTrans.commit();
+
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"non funziona un cazzo",Toast.LENGTH_LONG).show();
+                    }
 
                 /*Intent intent = new Intent(CurrentActivity.this, TargetActivity.class);
                 startActivity(intent);*/
@@ -133,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         if(fragment != null){
             FragmentTransaction vTrans = getSupportFragmentManager().beginTransaction();
             vTrans.remove(fragment);
-            vTrans.addToBackStack(null);
             vTrans.commit();
             Toast.makeText(getApplicationContext(),"true",Toast.LENGTH_LONG).show();}
         else  Toast.makeText(getApplicationContext(),"false",Toast.LENGTH_LONG).show();
