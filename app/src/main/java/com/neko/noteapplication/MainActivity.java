@@ -1,6 +1,7 @@
 package com.neko.noteapplication;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
@@ -10,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -24,13 +24,13 @@ import com.neko.noteapplication.utils.Note;
 import java.util.Calendar;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, FirstFragment.interfacciaSenzaNomeDiFantasia {
-
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, ModifyFrag.IOnDetail {
+    public final String FRAGMENT = "my_fragment";
     TapBarMenu tapBarMenu;
     private SimpleAdapter adapter;
     private DataProvider dataProvider = DataProvider.getInstance();
     private FragmentManager fragmentManager = getSupportFragmentManager();
-    private FirstFragment fragment;
+    private ModifyFrag fragment;
     private List<Note> list;
     ImageView btnAggiungi;
 
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 tapBarMenu.toggle();
             }
         });
-        final String FRAGMENT = "my_fragment";
+
 
         Calendar c = Calendar.getInstance();
         int ora= c.get(Calendar.HOUR_OF_DAY);
@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             rl.setBackgroundColor(Color.parseColor("#232323"));}
 
 
-        if((fragment = (FirstFragment) fragmentManager.findFragmentByTag(FRAGMENT)) == null){
-            fragment = FirstFragment.newInstance();
+        if((fragment = (ModifyFrag) fragmentManager.findFragmentByTag(FRAGMENT)) == null){
+            fragment = ModifyFrag.newInstance();
         }
 
         btnAggiungi = (ImageView)findViewById(R.id.btnAggiungi);
@@ -129,7 +129,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
 
     @Override
-    public void VOID() {
-
+    public void onMyClose() {
+        if(fragment != null){
+            FragmentTransaction vTrans = getSupportFragmentManager().beginTransaction();
+            vTrans.remove(fragment);
+            vTrans.addToBackStack(null);
+            vTrans.commit();
+            Toast.makeText(getApplicationContext(),"true",Toast.LENGTH_LONG).show();}
+        else  Toast.makeText(getApplicationContext(),"false",Toast.LENGTH_LONG).show();
     }
+
+
+
 }
