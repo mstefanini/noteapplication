@@ -49,6 +49,7 @@ public class DataProvider {
     public void addNote(Note note){
         Document document = database.createDocument();
         HashMap<String, Object> hashMap = setHashMap(note);
+        hashMap.put("id", document.getId());
         try{
             document.putProperties(hashMap);
         } catch (CouchbaseLiteException e){
