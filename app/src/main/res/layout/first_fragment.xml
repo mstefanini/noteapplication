@@ -10,7 +10,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:background="#fafafa">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -38,7 +39,7 @@
                         android:autoText="true"
                         android:textColorLink="#ffffff"
                         android:textColor="#ffffff"
-                        android:drawableTint="#ffffff"
+                        android:drawableTint="#505050"
                         android:textSize="25dp"
                         android:layout_gravity="left"
                         android:hint="inserisci il titolo..."
@@ -64,9 +65,9 @@
                     android:autoText="true"
                     android:textColorLink="#ffffff"
                     android:textColor="#ffffff"
-                    android:drawableTint="#ffffff"
+                    android:drawableTint="#505050"
                     android:textSize="25dp"
-                    android:hint="ciao" />
+                    android:hint="Inserisci la tua nota" />
 
             </LinearLayout>
         </LinearLayout>

@@ -1,6 +1,4 @@
 package com.neko.noteapplication;
-
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
@@ -27,12 +27,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, FirstFragment.interfacciaSenzaNomeDiFantasia {
 
     TapBarMenu tapBarMenu;
-    private List<Note> list;
     private SimpleAdapter adapter;
     private DataProvider dataProvider = DataProvider.getInstance();
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private FirstFragment fragment;
-    List list;
+    private List<Note> list;
+    ImageView btnAggiungi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             fragment = FirstFragment.newInstance();
         }
 
-
+        btnAggiungi = (ImageView)findViewById(R.id.btnAggiungi);
+        btnAggiungi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction vTrans= fragmentManager.beginTransaction();
+                vTrans.add(R.id.container, fragment, FRAGMENT);
+                vTrans.commit();
+            }
+        });
         ListView listView = (ListView)findViewById(R.id.listView);
          list = dataProvider.getListArray();
         listView.setDivider(null);

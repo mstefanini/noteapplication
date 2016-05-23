@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.neko.noteapplication.MainActivity"
-    android:id="@+id/schermo">
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <com.michaldrabik.tapbarmenulib.TapBarMenu
         android:id="@+id/tapBarMenu"
         android:layout_width="match_parent"
@@ -23,7 +11,8 @@
         android:layout_alignParentBottom="true"
         app:tbm_backgroundColor="#0d65ff"
         app:tbm_showItems="false"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:gravity="left">
 
         <ImageView
             android:id="@+id/item1"
@@ -49,11 +38,4 @@
             android:paddingBottom="10dp"
             android:src="@drawable/ic_arrow_vector" />
     </com.michaldrabik.tapbarmenulib.TapBarMenu>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/container"></FrameLayout>
-
-
-</RelativeLayout>
+</LinearLayout>
