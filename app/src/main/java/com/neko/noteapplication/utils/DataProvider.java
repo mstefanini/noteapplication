@@ -9,6 +9,7 @@ import com.couchbase.lite.Manager;
 import com.couchbase.lite.Query;
 import com.couchbase.lite.QueryEnumerator;
 import com.couchbase.lite.QueryRow;
+import com.couchbase.lite.UnsavedRevision;
 import com.couchbase.lite.android.AndroidContext;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -47,6 +49,7 @@ public class DataProvider {
     public void addNote(Note note){
         Document document = database.createDocument();
         HashMap<String, Object> hashMap = setHashMap(note);
+        hashMap.put("id", document.getId());
         try{
             document.putProperties(hashMap);
         } catch (CouchbaseLiteException e){
@@ -89,7 +92,7 @@ public class DataProvider {
     }
 
     public List<Note> searchByyTitle(String aTitle){
-        List<Note> note = new ArrayList<>();
+        ArrayList<Note> note = new ArrayList<>();
         try{
             Query allDocumentsQuery = database.createAllDocumentsQuery();
             QueryEnumerator queryResults = allDocumentsQuery.run();
@@ -102,9 +105,8 @@ public class DataProvider {
         } catch (CouchbaseLiteException e){
             Log.e(COUCH, "Problem in find element");
         }
-
-        Log.d("TEST", note.toString());
         return note;
+
     }
 
     private void initCB(){
@@ -144,4 +146,37 @@ public class DataProvider {
         }
     }
 
+    public void updateNote(Note note){
+        Document doc = database.getDocument(note.getId());
+        Map<String, Object> properties = new HashMap<>();
+        properties.putAll(doc.getProperties());
+        addProperties(properties, note);
+        try {
+            doc.putProperties(properties);
+        } catch (CouchbaseLiteException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public HashMap<String, Object> noteToMap(Note note){
+        HashMap<String, Object> temp = new HashMap<>();
+        temp.put("id", note.getId());
+        temp.put("note", note.getNote());
+        temp.put("date", note.getDate());
+        temp.put("time", note.getTime());
+        temp.put("title", note.getTime());
+
+        return temp;
+    }
+
+    void addProperties(Map<String, Object> temp, Note note){
+        if(temp != null) {
+            temp.put("id", note.getId());
+            temp.put("note", note.getNote());
+            temp.put("date", note.getDate());
+            temp.put("time", note.getTime());
+            temp.put("title", note.getTime());
+        }
+    }
 }
