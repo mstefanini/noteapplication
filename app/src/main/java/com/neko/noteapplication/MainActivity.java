@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
 import com.neko.noteapplication.utils.DataProvider;
+import com.neko.noteapplication.utils.MainApp;
 import com.neko.noteapplication.utils.Note;
 
 import java.util.Calendar;
@@ -27,11 +29,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, ModifyFrag.IOnDetail {
     public final String FRAGMENT = "my_fragment";
     TapBarMenu tapBarMenu;
-    private SimpleAdapter adapter;
+    private CustomAdapter adapter;
     private DataProvider dataProvider = DataProvider.getInstance();
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private ModifyFrag fragment;
     private List<Note> list;
+    private ListView listView;
     ImageView btnAggiungi;
 
     @Override
@@ -68,8 +71,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 vTrans.commit();
             }
         });
-        ListView listView = (ListView)findViewById(R.id.listView);
-         list = dataProvider.getListArray();
+        listView = (ListView)findViewById(R.id.listView);
+        list = dataProvider.getListArray();
         listView.setDivider(null);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -79,21 +82,17 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
                FragmentTransaction vTrans= fragmentManager.beginTransaction();
                         vTrans.add(R.id.container, fragment, FRAGMENT);
-                Note note= (Note) list.get(position);
+                Note note = list.get(position);
                 Bundle bundle=new Bundle();
                 bundle.putString("titolo",note.getTitle());
                 bundle.putString("testo",note.getNote());
                 fragment.setArguments(bundle);
                 vTrans.commit();
 
-                /*Intent intent = new Intent(CurrentActivity.this, TargetActivity.class);
-                startActivity(intent);*/
             }
         });
 
-        //list.add(new Note("title","description","22"));
-        //list.add(new Note("title 2","description 2",":)"));
-        CustomAdapter adapter = new CustomAdapter(this, R.layout.lista, list);
+        adapter = new CustomAdapter(MainApp.getInstance().getContext(), R.layout.lista, list);
         listView.setAdapter(adapter);
 
     }
@@ -116,9 +115,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         list = dataProvider.searchByyTitle(query);
         if(list.isEmpty()) {
             list.add(new Note("Nessun risultato", null, null));
-            return true;
         }
-        return false;
+        adapter = new CustomAdapter(MainApp.getInstance().getContext(), R.layout.lista, list);
+        listView.setAdapter(adapter);
+        return true;
     }
 
     @Override
@@ -138,6 +138,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             Toast.makeText(getApplicationContext(),"true",Toast.LENGTH_LONG).show();}
         else  Toast.makeText(getApplicationContext(),"false",Toast.LENGTH_LONG).show();
     }
+
+
 
 
 
