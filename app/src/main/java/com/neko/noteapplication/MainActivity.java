@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         btnAggiungi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fragment = ModifyFrag.newInstance();
                 FragmentTransaction vTrans= fragmentManager.beginTransaction();
                 vTrans.add(R.id.container, fragment, FRAGMENT);
                 vTrans.commit();

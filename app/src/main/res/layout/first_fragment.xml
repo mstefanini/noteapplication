@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,13 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="1"
-        android:background="#fafafa">
+        android:background="#fafafa"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="342dp"
             android:layout_weight="0.40">
+
+
 
             <LinearLayout
                 android:orientation="vertical"
@@ -70,6 +76,8 @@
                     android:textColorHint="#505050" />
 
             </LinearLayout>
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -80,56 +88,55 @@
             <Button
                 android:background="@drawable/red_button"
                 android:id="@+id/buttonSave"
-                android:layout_width="256dp"
+                android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:text="SALVA"
                 style="@style/button_text"
                 android:textSize="20dp"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal|right" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CHIUDI"
-                android:id="@+id/bClose" />
+                android:id="@+id/bClose"
+                android:layout_gravity="right" />
         </LinearLayout>
-        <com.michaldrabik.tapbarmenulib.TapBarMenu
-            android:id="@+id/tapBarMenu2"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginBottom="2dp"
-            android:layout_gravity="left"
-            android:layout_alignParentBottom="true"
-            app:tbm_backgroundColor="#0d65ff"
-            app:tbm_showItems="false"
-            android:layout_alignParentStart="true"
-            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/item1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:src="@drawable/ic_arrow_to_drawer"
-                />
-
-            <Space
-                android:layout_width="56dp"
-                android:layout_height="match_parent"
-                />
-
-            <ImageView
-                android:id="@+id/btnAggiungi"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:src="@drawable/ic_arrow_vector" />
-        </com.michaldrabik.tapbarmenulib.TapBarMenu>
     </LinearLayout>
 
+    <com.michaldrabik.tapbarmenulib.TapBarMenu
+        android:id="@+id/tapBarMenu2"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="2dp"
+        android:layout_alignParentBottom="true"
+        app:tbm_backgroundColor="#0d65ff"
+        app:tbm_showItems="false"
+        >
+        <ImageView
+            android:id="@+id/item1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/ic_arrow_to_drawer"
+            />
+        <Space
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            />
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/btnAddImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/addimage"
+            />
+    </com.michaldrabik.tapbarmenulib.TapBarMenu>
+
+</RelativeLayout>
