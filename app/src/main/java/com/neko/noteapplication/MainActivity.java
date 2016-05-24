@@ -73,19 +73,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Toast.makeText(getApplicationContext(),"posizione:\t"+ position,Toast.LENGTH_LONG).show();
-
-               FragmentTransaction vTrans= fragmentManager.beginTransaction();
+                fragment = ModifyFrag.newInstance();
+                FragmentTransaction vTrans= fragmentManager.beginTransaction();
                         vTrans.add(R.id.container, fragment, FRAGMENT);
                 Note note;
                 note=list.get(position);
                 //Toast.makeText(getApplicationContext(),note.getTitle(),Toast.LENGTH_LONG).show();
                 if(fragment != null) {
-                Bundle bundle=new Bundle();
-                bundle.putString("titolo",note.getTitle());
-                bundle.putString("testo",note.getNote());
-                fragment.setArguments(bundle);
-                vTrans.commit();
-
+                    Bundle bundle=new Bundle();
+                    bundle.putString("titolo",note.getTitle());
+                    bundle.putString("testo",note.getNote());
+                    fragment.setArguments(bundle);
+                    vTrans.commit();
                 }else{
                     Toast.makeText(getApplicationContext(),"non funziona un cazzo",Toast.LENGTH_LONG).show();
                     }
@@ -102,9 +101,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu,menu);
-
         MenuItem searchItem = menu.findItem(R.id.search);
-
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setOnQueryTextListener(this);
 

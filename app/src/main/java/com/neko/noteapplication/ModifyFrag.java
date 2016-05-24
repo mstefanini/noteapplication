@@ -45,6 +45,7 @@ public class ModifyFrag extends Fragment {
     }
 
     public static ModifyFrag newInstance(){
+
         return new ModifyFrag();
     }
 
@@ -78,10 +79,8 @@ public class ModifyFrag extends Fragment {
         Bundle bundle;
         if((bundle = getArguments()) != null){
             //Log.d ("LOG DI TAZZINA",bundle.getString(TITOLO));
-            String titolodimerda=bundle.getString(TITOLO);
-            String descrizionedimerda=bundle.getString(TESTO);
-            miotitolo.setText(titolodimerda);
-            miadescr.setText(bundle.getString(descrizionedimerda));
+            miotitolo.setText(bundle.getString(TITOLO));
+            miadescr.setText(bundle.getString(TESTO));
             }
 
 
