@@ -30,8 +30,8 @@ public class DataProvider {
     private Database database = null;
     private Manager manager = null;
     public static DataProvider dataProvider = null;
-    public static final String DB_NAME = "couchbaseevents";
-    public static final String TAG = "couchbaseevents";
+    public static final String DB_NAME = "couchbaseevent";
+    public static final String TAG = "couchbaseevent";
     public static final String COUCH = "coucherror";
 
 

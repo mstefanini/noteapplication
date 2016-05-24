@@ -110,11 +110,15 @@ public class ModifyFrag extends Fragment {
                 /* = (TextView)vView.findViewById(R.id.textViewDate);
                 ora.setText("" + cal.getHours() + ":" + cal.getMinutes());*/
 
+                Note nota = new Note(miotitolo.getText().toString(), miadescr.getText().toString(), "" + giorno + " " + cal.getHours() + ":" + cal.getMinutes());
 
-
-                Note nota=new Note(miotitolo.getText().toString(),miadescr.getText().toString(),""+giorno +" " + cal.getHours() + ":" + cal.getMinutes());
-                DataProvider.getInstance().addNote(nota);
-                mListener.onMyClose();
+                if(getArguments() != null) {
+                    DataProvider.getInstance().updateNote(nota);
+                    mListener.onMyClose();
+                } else {
+                    DataProvider.getInstance().addNote(nota);
+                    mListener.onMyClose();
+                }
                 //getActivity().getFragmentManager().beginTransaction().remove().commit();
                 //getActivity().getSupportFragmentManager().beginTransaction().remove(myfragment).commit();
                 //getActivity().getSupportFragmentManager().popBackStack();

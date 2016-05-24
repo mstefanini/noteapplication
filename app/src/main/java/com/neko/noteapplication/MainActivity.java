@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 FragmentTransaction vTrans= fragmentManager.beginTransaction();
                 vTrans.add(R.id.container, fragment, FRAGMENT);
                 vTrans.commit();
+
             }
         });
         listView = (ListView)findViewById(R.id.listView);
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     fragment.setArguments(bundle);
                     vTrans.commit();
                 }else{
-                    Toast.makeText(getApplicationContext(),"non funziona un cazzo",Toast.LENGTH_LONG).show();
+
                     }
                 /*Intent intent = new Intent(CurrentActivity.this, TargetActivity.class);
                 startActivity(intent);*/
@@ -106,6 +107,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         searchView.setOnQueryTextListener(this);
 
         return true;
+    }
+
+    @Override
+    public boolean hasWindowFocus() {
+        adapter = new CustomAdapter(MainApp.getInstance().getContext(), R.layout.lista, list);
+        listView.setAdapter(adapter);
+        return super.hasWindowFocus();
     }
 
     @Override
@@ -132,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         if(fragment != null){
             FragmentTransaction vTrans = getSupportFragmentManager().beginTransaction();
             vTrans.remove(fragment);
+            //getSupportFragmentManager().popBackStack();
             vTrans.commit();
             Toast.makeText(getApplicationContext(),"true",Toast.LENGTH_LONG).show();}
         else  Toast.makeText(getApplicationContext(),"false",Toast.LENGTH_LONG).show();
