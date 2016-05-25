@@ -3,12 +3,14 @@ package com.neko.noteapplication;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
@@ -36,6 +38,7 @@ public class ModifyFrag extends Fragment {
     EditText miotitolo=null;
     EditText miadescr=null;
     String idNote;
+    ImageView btnAddImage;
 
     @Override
     public void onAttach(Context context) {
@@ -60,6 +63,16 @@ public class ModifyFrag extends Fragment {
         aMenu.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 aMenu.toggle();
+
+            }
+        });
+
+        btnAddImage = (ImageView)vView.findViewById(R.id.btnAddImage);
+        btnAddImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
             }
         });
 
