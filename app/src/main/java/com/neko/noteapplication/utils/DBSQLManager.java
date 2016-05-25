@@ -65,7 +65,7 @@ public class DBSQLManager {
                 NoteEntry.COLUMN_NAME_DATE,
                 NoteEntry.COLUMN_NAME_TIMER,
         };
-        String sortOrder = NoteEntry.COLUMN_NAME_DATE + " DESC";
+        String sortOrder = NoteEntry.COLUMN_NAME_NOTE_ID + " DESC";
         Cursor c = db.query(
                 NoteEntry.TABLE_NAME,
                 projection,
@@ -84,7 +84,7 @@ public class DBSQLManager {
             int itemTimer = c.getColumnIndex(NoteEntry.COLUMN_NAME_TIMER);
             list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemText), c.getString(itemTimer), c.getString(itemDate)));
             while (c.moveToNext()) {
-                list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemText), c.getString(itemTimer), c.getString(itemDate)));
+                list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemDate), c.getString(itemTimer), c.getString(itemText)));
             }
         }
         c.close();

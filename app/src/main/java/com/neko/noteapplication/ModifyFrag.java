@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
+import com.neko.noteapplication.utils.DBSQLManager;
 import com.neko.noteapplication.utils.DataProvider;
 import com.neko.noteapplication.utils.Note;
 
@@ -125,13 +126,13 @@ public class ModifyFrag extends Fragment {
                 /* = (TextView)vView.findViewById(R.id.textViewDate);
                 ora.setText("" + cal.getHours() + ":" + cal.getMinutes());*/
 
-                Note nota = new Note(idNote, miotitolo.getText().toString(), miadescr.getText().toString(), "" + giorno + " " + cal.getHours() + ":" + cal.getMinutes());
-
+                Note nota = new Note( miotitolo.getText().toString(), miadescr.getText().toString(), "" + giorno + " " + cal.getHours() + ":" + cal.getMinutes());
+                Log.d("DEBUG", nota.toString());
                 if(getArguments() != null) {
-                    DataProvider.getInstance().updateNote(nota);
+                    DBSQLManager.getInstance().updateNote(nota);
                     mListener.onMyClose();
                 } else {
-                    DataProvider.getInstance().addNote(nota);
+                    DBSQLManager.getInstance().addNote(nota);
                     mListener.onMyClose();
                 }
                 //getActivity().getFragmentManager().beginTransaction().remove().commit();
