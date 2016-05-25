@@ -1,6 +1,7 @@
 package com.neko.noteapplication.utils;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.couchbase.lite.CouchbaseLiteException;
 import com.couchbase.lite.Database;
@@ -9,7 +10,6 @@ import com.couchbase.lite.Manager;
 import com.couchbase.lite.Query;
 import com.couchbase.lite.QueryEnumerator;
 import com.couchbase.lite.QueryRow;
-import com.couchbase.lite.UnsavedRevision;
 import com.couchbase.lite.android.AndroidContext;
 
 import java.util.ArrayList;
@@ -17,8 +17,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import java.util.StringTokenizer;
 
 /**
  * Created by matteo on 11/05/16.
@@ -48,8 +46,12 @@ public class DataProvider {
 
     public void addNote(Note note){
         Document document = database.createDocument();
-        HashMap<String, Object> hashMap = setHashMap(note);
+        HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", document.getId());
+        hashMap.put("Title", note.title);
+        hashMap.put("Note", note.note);
+        hashMap.put("Time", note.time);
+        hashMap.put("Date", note.date);
         try{
             document.putProperties(hashMap);
         } catch (CouchbaseLiteException e){
@@ -57,20 +59,6 @@ public class DataProvider {
         }
     }
 
-    public ArrayList<Note> getDataArray(){
-        ArrayList<Note> noteArrayList = new ArrayList<>();
-        try {
-            Query allDocumentsQuery = database.createAllDocumentsQuery();
-            QueryEnumerator queryResult = allDocumentsQuery.run();
-            for (Iterator<QueryRow> it = queryResult; it.hasNext(); ) {
-                QueryRow row = it.next();
-                noteArrayList.add(Note.createFromDocument(row.getDocument()));
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "An error happened", e);
-        }
-        return noteArrayList;
-    }
 
     public List<Note> getListArray(){
         List<Note> noteList = new ArrayList<>();
@@ -87,9 +75,6 @@ public class DataProvider {
         return noteList;
     }
 
-    public Note getNoteById(String i){
-        return Note.createFromDocument(database.getDocument(i));
-    }
 
     public List<Note> searchByyTitle(String aTitle){
         ArrayList<Note> note = new ArrayList<>();
@@ -118,28 +103,6 @@ public class DataProvider {
         }
     }
 
-    private String createDocuments(Note note){
-        Document document = database.createDocument();
-        String documentID = document.getId();
-        Map<String, Object> obj = setHashMap(note);
-        try{
-            document.putProperties(obj);
-        }catch (CouchbaseLiteException e){
-            Log.d(TAG, "Error putting element");
-        }
-        return documentID;
-    }
-
-
-    private HashMap<String, Object> setHashMap(Note note){
-        HashMap<String, Object> obj = new HashMap<>();
-        obj.put("Title", note.title);
-        obj.put("Note", note.note);
-        obj.put("Time", note.time);
-        obj.put("Date", note.date);
-        return obj;
-    }
-
     private void initDebugDB(){
         for(int i=0; i<100; i++){
             addNote(new Note("Titolo", "Testo nota", "TEMPO", "DATA"));
@@ -148,9 +111,16 @@ public class DataProvider {
 
     public void updateNote(Note note){
         Document doc = database.getDocument(note.getId());
+        if(doc == null){
+            Toast.makeText(mainApp.getContext(), "Doc = null", Toast.LENGTH_LONG).show();
+            return;
+        }
         Map<String, Object> properties = new HashMap<>();
-        properties.putAll(doc.getProperties());
-        addProperties(properties, note);
+        properties.put("id", doc.getId());
+        properties.put("Title", note.title);
+        properties.put("Note", note.note);
+        properties.put("Time", note.time);
+        properties.put("Date", note.date);
         try {
             doc.putProperties(properties);
         } catch (CouchbaseLiteException e) {

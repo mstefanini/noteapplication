@@ -1,13 +1,11 @@
 package com.neko.noteapplication;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,10 +13,10 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.michaldrabik.tapbarmenulib.TapBarMenu;
+import com.neko.noteapplication.utils.DBSQLManager;
 import com.neko.noteapplication.utils.DataProvider;
 import com.neko.noteapplication.utils.MainApp;
 import com.neko.noteapplication.utils.Note;
@@ -31,12 +29,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     TapBarMenu tapBarMenu;
     private CustomAdapter adapter;
     private DataProvider dataProvider = DataProvider.getInstance();
+    private DBSQLManager dbsqlManager = DBSQLManager.getInstance();
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private ModifyFrag fragment;
     private List<Note> list;
     private ListView listView;
     ImageView btnAggiungi;
     Bundle bundle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
         listView = (ListView)findViewById(R.id.listView);
-        list = dataProvider.getListArray();
+        list = dbsqlManager.allNote();
         listView.setDivider(null);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -77,20 +77,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 fragment = ModifyFrag.newInstance();
                 FragmentTransaction vTrans= fragmentManager.beginTransaction();
                         vTrans.add(R.id.container, fragment, FRAGMENT);
-                Note note;
-                note=list.get(position);
+                Note note = list.get(position);
                 //Toast.makeText(getApplicationContext(),note.getTitle(),Toast.LENGTH_LONG).show();
                 if(fragment != null) {
                     Bundle bundle=new Bundle();
                     bundle.putString("titolo",note.getTitle());
                     bundle.putString("testo",note.getNote());
+                    bundle.putString("idNote", note.getId());
                     fragment.setArguments(bundle);
                     vTrans.commit();
                 }else{
 
-                    }
-                /*Intent intent = new Intent(CurrentActivity.this, TargetActivity.class);
-                startActivity(intent);*/
+                }
             }
         });
 

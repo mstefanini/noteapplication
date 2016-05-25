@@ -35,6 +35,7 @@ public class ModifyFrag extends Fragment {
     Button bclose;
     EditText miotitolo=null;
     EditText miadescr=null;
+    String idNote;
 
     @Override
     public void onAttach(Context context) {
@@ -81,6 +82,7 @@ public class ModifyFrag extends Fragment {
             //Log.d ("LOG DI TAZZINA",bundle.getString(TITOLO));
             miotitolo.setText(bundle.getString(TITOLO));
             miadescr.setText(bundle.getString(TESTO));
+            idNote = bundle.getString("idNote");
             }
 
 
@@ -110,7 +112,7 @@ public class ModifyFrag extends Fragment {
                 /* = (TextView)vView.findViewById(R.id.textViewDate);
                 ora.setText("" + cal.getHours() + ":" + cal.getMinutes());*/
 
-                Note nota = new Note(miotitolo.getText().toString(), miadescr.getText().toString(), "" + giorno + " " + cal.getHours() + ":" + cal.getMinutes());
+                Note nota = new Note(idNote, miotitolo.getText().toString(), miadescr.getText().toString(), "" + giorno + " " + cal.getHours() + ":" + cal.getMinutes());
 
                 if(getArguments() != null) {
                     DataProvider.getInstance().updateNote(nota);
