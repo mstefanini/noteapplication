@@ -87,6 +87,7 @@ public class DBSQLManager {
                 list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemText), c.getString(itemTimer), c.getString(itemDate)));
             }
         }
+        c.close();
         return list;
     }
 
