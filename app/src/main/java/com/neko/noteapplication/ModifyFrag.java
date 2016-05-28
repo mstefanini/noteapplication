@@ -126,7 +126,7 @@ public class ModifyFrag extends Fragment {
                 /* = (TextView)vView.findViewById(R.id.textViewDate);
                 ora.setText("" + cal.getHours() + ":" + cal.getMinutes());*/
 
-                Note nota = new Note( miotitolo.getText().toString(), miadescr.getText().toString(), "" + giorno + " " + cal.getHours() + ":" + cal.getMinutes());
+                Note nota = new Note( miotitolo.getText().toString(), miadescr.getText().toString(), "" + giorno +"/"+ c.get(Calendar.MONTH)+ "\n" + cal.getHours() + ":" + cal.getMinutes());
                 Log.d("DEBUG", nota.toString());
                 if(getArguments() != null) {
                     DBSQLManager.getInstance().updateNote(nota);

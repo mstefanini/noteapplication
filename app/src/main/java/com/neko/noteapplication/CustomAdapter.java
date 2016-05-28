@@ -33,8 +33,8 @@ public class CustomAdapter extends ArrayAdapter<Note> {
         TextView data = (TextView)  convertView.findViewById(R.id.day);
         Note c = getItem(position);
         nome.setText(c.getTitle());
-        testo.setText(c.getNote());
-        data.setText(c.getTime());
+        testo.setText(c.getTime());
+        data.setText(c.getNote());
         return convertView;
     }
 

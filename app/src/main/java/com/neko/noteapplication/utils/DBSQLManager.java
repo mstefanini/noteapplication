@@ -61,8 +61,8 @@ public class DBSQLManager {
         String[] projection = {
                 NoteEntry.COLUMN_NAME_NOTE_ID,
                 NoteEntry.COLUMN_NAME_TITLE,
-                NoteEntry.COLUMN_NAME_TEXT,
                 NoteEntry.COLUMN_NAME_DATE,
+                NoteEntry.COLUMN_NAME_TEXT,
                 NoteEntry.COLUMN_NAME_TIMER,
         };
         String sortOrder = NoteEntry.COLUMN_NAME_NOTE_ID + " DESC";
