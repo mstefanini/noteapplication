@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by matteo on 24/05/16.
  */
 public class DBSQLManager {
-    
+
     private static DBSQLManager instance = null;
     private DBSQLHelper dbHelper = null;
 
@@ -97,6 +97,7 @@ public class DBSQLManager {
                 NoteEntry.COLUMN_NAME_DATE,
                 NoteEntry.COLUMN_NAME_TEXT,
                 NoteEntry.COLUMN_NAME_TIMER,
+                NoteEntry.COLUMN_NAME_MEDIA
         };
         String sortOrder = NoteEntry.COLUMN_NAME_NOTE_ID + " DESC";
         Cursor c = db.query(
@@ -109,19 +110,21 @@ public class DBSQLManager {
                 sortOrder
         );
         ArrayList<Note> list = new ArrayList<>();
-        if(c.moveToFirst()) {
-            int itemID = c.getColumnIndex(NoteEntry.COLUMN_NAME_NOTE_ID);
-            int itemTitle = c.getColumnIndex(NoteEntry.COLUMN_NAME_TITLE);
-            int itemText = c.getColumnIndex(NoteEntry.COLUMN_NAME_TEXT);
-            int itemDate = c.getColumnIndex(NoteEntry.COLUMN_NAME_DATE);
-            int itemTimer = c.getColumnIndex(NoteEntry.COLUMN_NAME_TIMER);
-            int itemMedia = c.getColumnIndex(NoteEntry.COLUMN_NAME_MEDIA);
-            list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemText), c.getString(itemTimer), c.getString(itemDate), c.getString(itemMedia)));
-            while (c.moveToNext()) {
+        if(c != null) {
+            if (c.moveToFirst()) {
+                int itemID = c.getColumnIndex(NoteEntry.COLUMN_NAME_NOTE_ID);
+                int itemTitle = c.getColumnIndex(NoteEntry.COLUMN_NAME_TITLE);
+                int itemText = c.getColumnIndex(NoteEntry.COLUMN_NAME_TEXT);
+                int itemDate = c.getColumnIndex(NoteEntry.COLUMN_NAME_DATE);
+                int itemTimer = c.getColumnIndex(NoteEntry.COLUMN_NAME_TIMER);
+                int itemMedia = c.getColumnIndex(NoteEntry.COLUMN_NAME_MEDIA);
                 list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemText), c.getString(itemTimer), c.getString(itemDate), c.getString(itemMedia)));
+                while (c.moveToNext()) {
+                    list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemText), c.getString(itemTimer), c.getString(itemDate), c.getString(itemMedia     )));
+                }
             }
+            c.close();
         }
-        c.close();
         return list;
     }
 
@@ -131,6 +134,7 @@ public class DBSQLManager {
         values.put(NoteEntry.COLUMN_NAME_TEXT, note.getNote());
         values.put(NoteEntry.COLUMN_NAME_DATE, note.getDate());
         values.put(NoteEntry.COLUMN_NAME_TIMER, note.getTime());
+        values.put(NoteEntry.COLUMN_NAME_MEDIA, note.getMedia());
         return values;
     }
 
