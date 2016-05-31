@@ -141,7 +141,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             vTrans.remove(fragment);
             //getSupportFragmentManager().popBackStack();
             vTrans.commit();
-            Toast.makeText(getApplicationContext(),"true",Toast.LENGTH_LONG).show();}
+            Toast.makeText(getApplicationContext(),"true",Toast.LENGTH_LONG).show();
+
+            list = dbsqlManager.allNote();//---------mod
+            adapter = new CustomAdapter(MainApp.getInstance().getContext(), R.layout.lista, list);
+            listView.setAdapter(adapter);
+
+
+        }
         else  Toast.makeText(getApplicationContext(),"false",Toast.LENGTH_LONG).show();
     }
 

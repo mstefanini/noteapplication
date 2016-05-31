@@ -1,7 +1,6 @@
 package com.neko.noteapplication;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +32,8 @@ public class CustomAdapter extends ArrayAdapter<Note> {
         TextView data = (TextView)  convertView.findViewById(R.id.day);
         Note c = getItem(position);
         nome.setText(c.getTitle());
-        testo.setText(c.getTime());
-        data.setText(c.getNote());
+        testo.setText(c.getNote());
+        data.setText(c.getDate());
         return convertView;
     }
 

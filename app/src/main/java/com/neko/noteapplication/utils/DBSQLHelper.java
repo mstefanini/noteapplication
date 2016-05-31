@@ -27,7 +27,7 @@ public class DBSQLHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // This database is only a cache for online data, so its upgrade policy is
         // to simply to discard the data and start over
-        db.execSQL("DROP DATABASE " + DATABASE_NAME);
+        db.execSQL("DROP TABLE " + DBSQL.NoteEntry.TABLE_NAME);
         onCreate(db);
     }
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {

@@ -14,6 +14,7 @@ public class Note {
     public String date;
     public String time;
     public String title;
+    private String media;
 
     public static final String TITLE = "Title";
     public static final String NOTE = "note";
@@ -23,8 +24,8 @@ public class Note {
 
     public Note(String aTitolo, String aTesto, String aData) {
         setTitle(aTitolo);
-        setTime(aTesto);
-        setNote(aData);
+        setNote(aTesto);
+        setDate(aData);
     }
 
     public Note(String aTitle, String aNote, String aTime, String date){
@@ -34,12 +35,13 @@ public class Note {
         this.date = date;
     }
 
-    public Note(String aID, String aTitle, String aNote, String aTime, String date){
+    public Note(String aID, String aTitle, String aNote, String aTime, String date, String aMedia){
         this.id = aID;
         this.title = aTitle;
         this.note = aNote;
         this.time = aTime;
         this.date = date;
+        this.media = aMedia;
     }
 
     @Override
@@ -48,13 +50,7 @@ public class Note {
     }
 
     public static Note createFromDocument(Document document){
-        return new Note(
-                document.getId(),
-                String.valueOf(document.getProperty("Title")),
-                String.valueOf(document.getProperty("Note")),
-                String.valueOf(document.getProperty("Time")),
-                String.valueOf(document.getProperty("Date"))
-        );
+        return null;
     }
 
     public String getId() {
@@ -94,5 +90,13 @@ public class Note {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setMedia(String aMedia){
+        this.media = aMedia;
+    }
+
+    public String getMedia(){
+        return media;
     }
 }

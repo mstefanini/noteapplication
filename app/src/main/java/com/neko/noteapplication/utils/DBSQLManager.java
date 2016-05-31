@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by matteo on 24/05/16.
  */
 public class DBSQLManager {
-
+    
     private static DBSQLManager instance = null;
     private DBSQLHelper dbHelper = null;
 
@@ -56,6 +56,39 @@ public class DBSQLManager {
         db.delete(NoteEntry.TABLE_NAME, selection, selectionArgs);
     }
 
+    public ArrayList<Note> searchByTitle(String title){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String selection = NoteEntry.COLUMN_NAME_TITLE +  "  LIKE ?";
+        String[] selectionArgs = { title };
+        String sortOrder = NoteEntry.COLUMN_NAME_NOTE_ID + " ASC";
+        Cursor c = db.query(
+                NoteEntry.TABLE_NAME,  // The table to query
+                null,                               // The columns to return
+                selection,                                // The columns for the WHERE clause
+                selectionArgs,                            // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                sortOrder                                 // The sort order
+        );
+        ArrayList<Note> list = new ArrayList<>();
+        if(c.moveToFirst()) {
+            int itemID = c.getColumnIndex(NoteEntry.COLUMN_NAME_NOTE_ID);
+            int itemTitle = c.getColumnIndex(NoteEntry.COLUMN_NAME_TITLE);
+            int itemText = c.getColumnIndex(NoteEntry.COLUMN_NAME_TEXT);
+            int itemDate = c.getColumnIndex(NoteEntry.COLUMN_NAME_DATE);
+            int itemTimer = c.getColumnIndex(NoteEntry.COLUMN_NAME_TIMER);
+            int itemMedia = c.getColumnIndex(NoteEntry.COLUMN_NAME_MEDIA);
+            list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemText), c.getString(itemTimer), c.getString(itemDate), c.getString(itemMedia)));
+            while (c.moveToNext()) {
+                list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemText), c.getString(itemTimer), c.getString(itemDate), c.getString(itemMedia)));
+            }
+        }
+        c.close();
+        return list;
+
+    }
+
+
     public ArrayList<Note> allNote(){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {
@@ -82,9 +115,10 @@ public class DBSQLManager {
             int itemText = c.getColumnIndex(NoteEntry.COLUMN_NAME_TEXT);
             int itemDate = c.getColumnIndex(NoteEntry.COLUMN_NAME_DATE);
             int itemTimer = c.getColumnIndex(NoteEntry.COLUMN_NAME_TIMER);
-            list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemText), c.getString(itemTimer), c.getString(itemDate)));
+            int itemMedia = c.getColumnIndex(NoteEntry.COLUMN_NAME_MEDIA);
+            list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemText), c.getString(itemTimer), c.getString(itemDate), c.getString(itemMedia)));
             while (c.moveToNext()) {
-                list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemDate), c.getString(itemTimer), c.getString(itemText)));
+                list.add(new Note(String.valueOf(c.getInt(itemID)), c.getString(itemTitle), c.getString(itemText), c.getString(itemTimer), c.getString(itemDate), c.getString(itemMedia)));
             }
         }
         c.close();
